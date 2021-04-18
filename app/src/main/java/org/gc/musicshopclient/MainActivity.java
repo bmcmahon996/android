@@ -16,11 +16,15 @@ import com.google.gson.*;
 import com.android.volley.*;
 import com.android.volley.toolbox.*;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private String SERVICE_URI = "";
+    private String SERVICE_URI = "https://eadca220210413155820.azurewebsites.net/api/musicshops";
     private String TAG = "musicshopclient";
 
     @Override
@@ -76,9 +80,14 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(String response)
                             {
 
-                                MusicShopData instruments = new Gson().fromJson(response, MusicShopData.class);
-                                outputTextView.setText(instruments.toString());
-                                Log.d(TAG, "Displaying data" + instruments.toString());
+                                try {
+                                    JSONArray object=new JSONArray(response);
+                                    outputTextView.setText(object.toString());
+                                    Log.d(TAG, "Displaying data" + object.toString());
+
+                            } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         },
                         new Response.ErrorListener()

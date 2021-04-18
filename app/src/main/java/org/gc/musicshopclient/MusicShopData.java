@@ -2,22 +2,23 @@ package org.gc.musicshopclient;
 
 public class MusicShopData {
 
-    private int Id;
-    private String Product;
+    private int id;
+    private String product;
 
-    private String Type;
+    private String type;
 
-    private int Price;
+    private int price;
 
-    private int Strings;
+    private int strings;
 
-    private String Manufacturer ;
+    private String manufacturer;
 
-    public int Stock;
+    public int stock;
+
 
         public String toString()
         {
-            return Id + " " + Product + " " + Type + " " + Price + " " + Strings + " " + Manufacturer + " " + Stock;
+            return id + " " + product + " " + type + " " + price + " " + strings + " " + manufacturer + " " + stock+ "";
         }
 
 }
